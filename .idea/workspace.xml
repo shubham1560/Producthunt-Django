@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10cfd867-feec-4fea-bace-f27eb42801cd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/producthunt/static/logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/producthunt/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/producthunt/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/producthunt/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/producthunt/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/home.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +18,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/producthunt/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="619">
-              <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+            <state relative-caret-position="704">
+              <caret line="129" lean-forward="true" selection-start-line="122" selection-end-line="129" />
             </state>
           </provider>
         </entry>
@@ -43,9 +45,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/producthunt/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+            <state relative-caret-position="272">
+              <caret line="16" column="109" selection-start-line="16" selection-start-column="109" selection-end-line="16" selection-end-column="109" />
               <folding>
+                <element signature="e#754#760#0" expanded="true" />
+                <element signature="e#760#766#0" expanded="true" />
                 <element signature="e#2005#2011#0" expanded="true" />
                 <element signature="e#2011#2017#0" expanded="true" />
                 <element signature="e#2017#2023#0" expanded="true" />
@@ -94,8 +98,8 @@
         <option value="$PROJECT_DIR$/products/templates/products/home.html" />
         <option value="$PROJECT_DIR$/products/views.py" />
         <option value="$PROJECT_DIR$/producthunt/urls.py" />
-        <option value="$PROJECT_DIR$/producthunt/settings.py" />
         <option value="$PROJECT_DIR$/products/templates/home.html" />
+        <option value="$PROJECT_DIR$/producthunt/settings.py" />
         <option value="$PROJECT_DIR$/producthunt/templates/base.html" />
       </list>
     </option>
@@ -131,7 +135,19 @@
             <path>
               <item name="producthunt" type="b2602c69:ProjectViewProjectNode" />
               <item name="producthunt" type="462c0819:PsiDirectoryNode" />
+              <item name="producthunt" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="producthunt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="producthunt" type="462c0819:PsiDirectoryNode" />
               <item name="products" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="producthunt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="producthunt" type="462c0819:PsiDirectoryNode" />
+              <item name="products" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="producthunt" type="b2602c69:ProjectViewProjectNode" />
@@ -157,7 +173,16 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/producthunt/static" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\shubhamsinha01\djangular\producthunt\producthunt\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\shubhamsinha01\djangular\producthunt\products\static" />
+      <recent name="C:\Users\shubhamsinha01\djangular\producthunt\producthunt\static" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -228,27 +253,6 @@
     <entry file="file://$PROJECT_DIR$/products/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="33" lean-forward="true" selection-start-column="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/products/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="39" lean-forward="true" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/producthunt/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/producthunt/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -266,11 +270,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/producthunt/static/product Presentations.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="33" lean-forward="true" selection-start-column="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/producthunt/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="129" lean-forward="true" selection-start-line="122" selection-end-line="129" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="39" lean-forward="true" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/producthunt/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        <state relative-caret-position="272">
+          <caret line="16" column="109" selection-start-line="16" selection-start-column="109" selection-end-line="16" selection-end-column="109" />
           <folding>
+            <element signature="e#754#760#0" expanded="true" />
+            <element signature="e#760#766#0" expanded="true" />
             <element signature="e#2005#2011#0" expanded="true" />
             <element signature="e#2011#2017#0" expanded="true" />
             <element signature="e#2017#2023#0" expanded="true" />
