@@ -2,6 +2,10 @@ h3 {
     color: #444444;
 }
 
+body {
+    font-family: 'Oswald';
+}
+
 .d-none {
     display: none !important;
 }

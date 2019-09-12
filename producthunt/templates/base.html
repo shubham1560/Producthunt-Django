@@ -5,142 +5,49 @@
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="{% static 'productHunt.css' %}" /> -->
-
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#"><img src="{% static 'logo.jpg'%}" length="30px" height="30px">&nbsp;&nbsp;Product Hunt</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                  PortFolio!
+                    <!-- <img src="{% static 'logo.jpg'%}" length="30px" height="30px" /> &nbsp;&nbsp;Product Hunt -->
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-            <ul class="navbar-nav mr-auto">
-            </ul>
-
-            <form class="form-inline my-2 my-lg-0 pull-right">
-                <button class="btn btn-outline-success my-2 my-sm-0" style="color: white; border:1px solid white" type="submit">Sign Up</button> &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-outline-success my-2 my-sm-0" style="color: white; border:1px solid white" type="submit">Login</button>
-            </form>
-        </div>
-    </nav>
-
-    <br> {% block content %} {% endblock %}
-    <br>
-
-    <!-- your widget template -->
-    <br>
-    <div class="container-fluid" style="background-color: #eafafa">
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-6 d-lg-block d-md-block d-xs-none d-none">
-                    <h3>
-                        Decide Later
-                    </h3>
-                    <div style="border-bottom: 2px solid #a3c2c2; width: 100px; margin-bottom: 10px;"></div>
-                    <ul style="list-style-type:none;" id="footer_li">
-                        <li>
-                            <a href="#">1</a>
-                        </li>
-
-                        <li>
-                            <a href="">2</a>
-                        </li>
-
-                        <li>
-                            <a href="">3</a>
-                        </li>
-
-                        <li>
-                            <a href="#">4</a>
-                        </li>
+                    <ul class="navbar-nav mr-auto">
                     </ul>
-                </div>
-                <div class="col-md-4 d-lg-block d-md-none d-sm-none d-none">
-                    <h3 style="color: black">
-                        Decide Later
-                    </h3>
-                    <div style="border-bottom: 2px solid #a3c2c2; width: 100px; margin-bottom: 10px;"></div>
-                    <ul style="list-style-type:none;" id="footer_li">
-                        <li>
-                            <a href="" target="_blank">Lisa</a>
-                        </li>
 
-                        <li>
-                            <a href="" target="_blank">Bart</a>
-                        </li>
-
-                        <li>
-                            <a href="#">Maggie</a>
-                        </li>
-
-                        <li>
-                            <a href="">Simpson</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <br>
-
-                    <img src="{% static 'logo.jpg'%} " width="auto " height="60px " />
-                    <br><br>
-
-                    <ul class="list-inline ">
-
-                        <li class="list-inline-item ">
-                            <a href="" class="fa fa-facebook " data-toggle="tooltip " data-placement="bottom " title="Facebook " target="_blank "></a>
-                        </li>
-
-                        <li class="list-inline-item ">
-                            <a href="" target="_blank " class="fa fa-linkedin " data-toggle="tooltip " data-placement="bottom " title="Linkedin "></a>
-                        </li>
-
-                        <li class="list-inline-item ">
-                            <a href="" target="_blank " class="fa fa-twitter " data-toggle="tooltip " data-placement="bottom " title="Twitter "></a>
-                        </li>
-                        <li class="list-inline-item ">
-                            <a href="" target="_blank " class="fa fa-vimeo " data-toggle="tooltip " data-placement="bottom " title="Vimeo "></a>
-                        </li>
-                    </ul>
-                    <!--
-<button type="button " style="color: black; " class="pull-right badge1 badge-light1 " data-toggle="modal "
-data-target="#myModal ">Privacy Policy</button>
-<br>
--->
-                    <!-- Modal -->
-                    <div class="modal fade " id="myModal " role="dialog ">
-                        <div class="modal-dialog modal-lg ">
-
-                            <!-- Modal content-->
-                            <div class="modal-content " style="height: 654px ">
-                                <div class="modal-header ">
-                                    <button type="button " class="close badge badge-light " data-dismiss="modal ">&times;</button> </div>
-                                <div class="modal-body " style="height: 600px ">
-                                    Well
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <p class="d-inline ">Desgin Patterns | </p>
-                    <p class="d-inline " data-toggle="modal " data-target="#myModal "><u class="pointer ">Privacy Policy</u></p>
+                    <form class="form-inline my-2 my-lg-0 pull-right">
+                        <button class="btn btn-outline-success my-2 my-sm-0" style="color: white; border:1px solid white" type="submit">Sign Up</button> &nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-outline-success my-2 my-sm-0" style="color: white; border:1px solid white" type="submit">Login</button>
+                    </form>
                 </div>
             </div>
-            <br><br>
-        </div>
+        </nav>
     </div>
 
+    {% block content %} {% endblock %}
+    <footer class="page-footer font-small blue pt-4">
+
+        <div class="footer-copyright text-center py-3">© Have a happy 2019
+            <a href=""> </a>
+        </div>
+    </footer>
+    </div>
 </body>
 
 </html>

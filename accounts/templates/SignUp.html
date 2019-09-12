@@ -1,1 +1,30 @@
-signup
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    {% block content%}
+    <br><br>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form method="POST" action="{%url 'signup'%}">
+            {% csrf_token %} Username:
+
+            <br>
+            <input type="text" name="username" />
+            <br> Password:
+            <br> <input type="password" name="password1"><br><br>
+            <input type="submit" value="Sign Up" class="btn btn-primary">
+        </form>
+    </div>
+
+    {% endblock %}
+</body>
+
+</html>
