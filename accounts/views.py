@@ -5,7 +5,19 @@ from django.contrib import auth
 
 
 def login(request):
-    return render(request, 'Login.html')
+    if request.method=='POST':
+        print("Post Method")
+        user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
+        if user:
+            auth.login(request, user)
+            return redirect('home')
+        else:
+            return render(request, 'Login.html', {'error': 'username or password is incorrect'})
+            print("User not found")
+
+        # return render(request, 'SignUp.html')
+    else:
+        return render(request, 'Login.html')
 
 
 def signup(request):

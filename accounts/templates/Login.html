@@ -12,10 +12,19 @@
     {% block content%}
 
     <div class="container">
-        <div class="row">
-            Login Form
-        </div>
+        <br><br> {% if error %} {{error}} {% endif %}
+        <br><br>
+        <h1>Login</h1>
+        <form method="POST" action="{%url 'login'%}">
+            {% csrf_token %} Username:
+            <br>
+            <input type="text" name="username" />
+            <br> Password:
+            <br> <input type="password" name="password"><br><br>
+            <input type="submit" value="Login" class="btn btn-primary">
+        </form>
     </div>
+
     {% endblock %}
 </body>
 

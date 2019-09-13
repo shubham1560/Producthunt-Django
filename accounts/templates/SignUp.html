@@ -10,8 +10,10 @@
 
 <body>
     {% block content%}
-    <br><br>
+
     <div class="container">
+        <br><br> {% if error %} {{error}} {% endif %}
+        <br><br>
         <h1>Sign Up</h1>
         <form method="POST" action="{%url 'signup'%}">
             {% csrf_token %} Username:
