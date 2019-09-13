@@ -31,10 +31,18 @@
                     <ul class="navbar-nav mr-auto">
                     </ul>
 
-                    <form class="form-inline my-2 my-lg-0 pull-right">
-                        <button class="btn btn-outline-success my-2 my-sm-0" style="color: white; border:1px solid white" type="submit">Sign Up</button> &nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-outline-success my-2 my-sm-0" style="color: white; border:1px solid white" type="submit">Login</button>
-                    </form>
+                    <div class="form-inline my-2 my-lg-0 pull-right">
+                        {% if user.is_authenticated %}
+                        <button class="btn btn-outline-success my-2 my-sm-0" style="color: white !important; border:1px solid white" type="submit"><a style="color:white" href="javascript:{document.getElementById('logout').submit()}">Log Out</a></button>                        &nbsp;&nbsp;&nbsp;
+                        <form action="{% url 'logout' %}" method="POST" id="logout">
+                            {% csrf_token %}
+                            <input type="text" name="" id="">
+                            <input type="hidden" />
+                        </form>
+                        {% else %}
+                        <button class="btn btn-outline-success my-2 my-sm-0" style="color: white !important; border:1px solid white" type="submit"><a style="color:white" href="{% url 'signup' %}">Sign Up</a></button> &nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-outline-success my-2 my-sm-0" style="color: white; border:1px solid white" type="submit"><a style="color:white" href="{% url 'login' %}">Login</a></button> {% endif %}
+                    </div>
                 </div>
             </div>
         </nav>

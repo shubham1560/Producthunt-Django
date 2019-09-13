@@ -32,17 +32,18 @@ def signup(request):
             print("Inside If")
             try:
                 user = User.objects.get(username=request.POST['username'])
-                return render(request, 'SignUp.html', {"error":"User name has already been taken"})
+                return render(request, 'SignUp.html', {"error": "User name has already been taken"})
             except User.DoesNotExist:
                 user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
                 auth.login(request, user)
                 return redirect('home')
         else:
-            return render(request, 'SignUp.html', {"error": "User name has already been taken"})
-
+            return render(request, 'SignUp.html', {"error": "Password don't match"})
     else:
         return render(request, "SignUp.html")
 
 
 def logout(request):
-    return render(request, "Logout.html")
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('home')
