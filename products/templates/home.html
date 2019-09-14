@@ -11,10 +11,30 @@
 <body>
     {% block content%}
 
+    <br><br>
     <div class="container">
         <div class="row">
 
-            <div class="col-md-3">This is the homepage</div>
+            {% for product in allProducts %}
+
+            <br><br>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{product.icon.url}}" style=" width: 100%;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.title}} by {{product.hunter}}</h5>
+                        <p class="card-text">{{product.body}} &nbsp; {{product.id}} </p>
+                        <a href="{% url 'productDetail' product_id=product.id %}" class="btn btn-primary">See Product</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- {{allProducts}} -->
+
+
+
+            <!-- <div class="col-md-3">This is the homepage</div> -->
         </div>
     </div>
 
