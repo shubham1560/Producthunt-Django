@@ -10,15 +10,10 @@
 
 <body>
 
-    {% block content%}
-{% if user.is_authenticated %}
-
-
+    {% block content%} {% if user.is_authenticated %} Already Logged In
+    <br> Will Populate the user data in later commits {% else %}
     <div class="container">
-        Already Logged In
-        <br>
-        Will Populate the user data in later commits
-    {% else %}
+
         <br><br> {% if error %} {{error}} {% endif %}
         <br><br>
         <h1>Login</h1>
@@ -31,8 +26,7 @@
             <input type="submit" value="Login" class="btn btn-primary">
         </form>
     </div>
-    {% endif %}
-    {% endblock %}
+    {% endif %} {% endblock %}
 </body>
 
 </html>

@@ -9,13 +9,22 @@
 </head>
 
 <body>
+
     {% block content%}
-
     <div class="container">
-        <div class="row">
 
-            <div class="col-md-3">Create New Product</div>
-        </div>
+        <h1>Create New Product</h1>
+        <form method="POST" action="{%url 'create'%}" enctype="multipart/form-data">
+            {% csrf_token %} Title:
+            <br>
+            <input type="text" name="title" />
+            <br>Product Description:
+            <br> <input type="text" name="body"><br> url: <br>
+            <input type="text" name="url"> <br> Image: <br>
+            <input type="file" name="image"> <br> Icon: <br>
+            <input type="file" name="icon"> <br> <br>
+            <input type="submit" value="Create Product" class="btn btn-primary">
+        </form>
     </div>
 
     {% endblock %}
