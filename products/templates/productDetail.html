@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    {% block content%}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Product Detail</h1><br>
+            </div>
+            <div class="col-md-12">
+                <h3>{{product.title}}</h3>
+                <img src={{product.icon.url}} alt="icon">
+                <img src="{{product.image.url}}" alt="image">
+                <br><br> Published By: {{product.hunter}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{product.pub_date}}
+                <h3>Description:</h3> {{product.body}}
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    {% endblock %}
+</body>
+
+</html>

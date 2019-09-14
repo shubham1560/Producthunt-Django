@@ -33,6 +33,7 @@
 
                     <div class="form-inline my-2 my-lg-0 pull-right">
                         {% if user.is_authenticated %}
+                        <button class="btn btn-outline-success my-2 my-sm-0" style="color: white !important; border:1px solid white" type="submit"><a style="color:white" href="{% url 'create' %}">+</a></button> &nbsp;&nbsp;&nbsp;
                         <button class="btn btn-outline-success my-2 my-sm-0" style="color: white !important; border:1px solid white" type="submit"><a style="color:white" href="javascript:{document.getElementById('logout').submit()}">Log Out</a></button>                        &nbsp;&nbsp;&nbsp;
                         <form action="{% url 'logout' %}" method="POST" id="logout">
                             {% csrf_token %}
