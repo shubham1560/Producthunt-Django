@@ -31,8 +31,10 @@ def create(request):
     return render(request, "create.html")
 
 
+@login_required(login_url='/accounts')
 def products(request):
-    return render(request, "products.html")
+    a = Product.objects.filter(hunter=request.user)
+    return render(request, "products.html", {'myProducts': a})
 
 
 def detail(request, product_id):

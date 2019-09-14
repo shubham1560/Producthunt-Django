@@ -13,8 +13,24 @@
 
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                <h3>All Products</h3>
+            </div>
+            <br><br><br> {% for product in myProducts %}
 
-            <div class="col-md-3">All Products</div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{product.icon.url}}" style=" width: 100%;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.title}}</h5>
+                        <p class="card-text">{{product.body}} &nbsp; {{product.id}} </p>
+                        <!-- <a href="{% url 'productDetail/{{product.id}}' %}" class="btn btn-primary">See Product</a> -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
         </div>
     </div>
 
