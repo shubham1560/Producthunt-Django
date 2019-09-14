@@ -3,6 +3,9 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 from .models import Product
 from django.utils import timezone
+import random
+import string
+
 
 
 def home(request):
@@ -12,11 +15,12 @@ def home(request):
 
 @login_required(login_url='/accounts')
 def create(request):
-    # print(request.POST)
-    # print(request.FILES)
+    print(request.POST)
+    print(request.FILES)
     if request.method == 'POST':
         if request.POST['title'] + request.POST['url'] + request.POST['body'] :
             product = Product()
+            ran = int(''.join([random.choice(string.digits) for n in range(16)]))
             product.title = request.POST['title']
             product.body = request.POST['body']
             product.url = request.POST['url']
@@ -24,6 +28,7 @@ def create(request):
             product.image = request.FILES['image']
             product.pub_date = timezone.datetime.now()
             product.hunter = request.user
+            product.id = ran
             product.save()
             return redirect('products')
         else:

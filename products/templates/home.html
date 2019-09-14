@@ -11,13 +11,14 @@
 <body>
     {% block content%}
 
-    <br><br>
     <div class="container">
         <div class="row">
-
+            <div class="col-md-12">
+                <h1>All Products</h1>
+                <br><br>
+            </div>
             {% for product in allProducts %}
 
-            <br><br>
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
                     <img src="{{product.icon.url}}" style=" width: 100%;" class="card-img-top" alt="...">
