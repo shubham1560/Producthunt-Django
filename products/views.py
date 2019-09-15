@@ -8,7 +8,7 @@ import string
 
 
 def home(request):
-    a = Product.objects.all()
+    a = Product.objects.filter(active=True)
     return render(request, "home.html", {'allProducts': a})
 
 
@@ -38,30 +38,41 @@ def create(request):
 
 @login_required(login_url='/accounts')
 def products(request):
-    a = Product.objects.filter(hunter=request.user)
+    a = Product.objects.filter(hunter=request.user, active=True)
     return render(request, "products.html", {'myProducts': a})
 
 
 def detail(request, product_id):
     # a = Product.objects.filter(hunter=request.user)
     product = get_object_or_404(Product, pk=product_id)
-    return render(request, 'productDetail.html', {'product': product})
+    a = ProductAttribute.objects.filter(voter=request.user)
+    if a:
+        voted = True
+    else:
+        voted = False
+    result = {'product': product, 'voted': voted}
+    return render(request, 'productDetail.html', result)
 
 
 @login_required(login_url='/accounts')
 def vote(request, product_id):
-    # print("Well Inside Function")
-    if request.method == 'POST':
-        # print("Inside POST")
-        product = get_object_or_404(Product, pk=product_id)
-        # print(product)
-        votes = ProductAttribute()
-        votes.id = int(''.join([random.choice(string.digits) for n in range(16)]))
-        votes.vote = True
-        votes.product = product
-        votes.voter = request.user
-        votes.voting_time = timezone.datetime.now()
-        votes.save()
-        # print(votes)
-        return detail(request, product_id)
+    a = ProductAttribute.objects.filter(voter=request.user)
+    if a:
+        print("Already Given vote")
+    else:
+        print("Giving your vote")
+        # print("Well Inside Function")
+        if request.method == 'POST':
+            # print("Inside POST")
+            product = get_object_or_404(Product, pk=product_id)
+            # print(product)
+            votes = ProductAttribute()
+            votes.id = int(''.join([random.choice(string.digits) for n in range(16)]))
+            votes.vote = True
+            votes.product = product
+            votes.voter = request.user
+            votes.voting_time = timezone.datetime.now()
+            votes.save()
+            # print(votes)
+            return detail(request, product_id)
     return detail(request, product_id)
