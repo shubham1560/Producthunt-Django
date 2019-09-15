@@ -50,17 +50,18 @@ def detail(request, product_id):
 
 @login_required(login_url='/accounts')
 def vote(request, product_id):
-    print("Well Inside Function")
+    # print("Well Inside Function")
     if request.method == 'POST':
-        print("Inside POST")
+        # print("Inside POST")
         product = get_object_or_404(Product, pk=product_id)
-        print(product)
+        # print(product)
         votes = ProductAttribute()
+        votes.id = int(''.join([random.choice(string.digits) for n in range(16)]))
         votes.vote = True
         votes.product = product
         votes.voter = request.user
         votes.voting_time = timezone.datetime.now()
         votes.save()
-        print(votes)
+        # print(votes)
         return detail(request, product_id)
     return detail(request, product_id)
