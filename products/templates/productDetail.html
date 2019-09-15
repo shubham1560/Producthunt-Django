@@ -19,17 +19,13 @@
                 <h3>{{product.title}}</h3>
                 <img src={{product.icon.url}} alt="icon"> <br>
                 <img src="{{product.image.url}}" alt="image">
-                <!-- <a href={{product.icon.url}} target="_blank" download> download icon</a> -->
 
                 <br><br> Published By: {{product.hunter}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{product.pub_date}}
                 <h3>Description:</h3> {{product.body}}
                 <br>
-                <!--                <a href="{% url 'productDetail' product_id=product.id %}" class="btn btn-primary">UpVote</a>-->
                 {{product.id}}
 
                 <br>
-<!--                <a class="btn btn-primary" href="{% url 'vote' product_id=product.id %}"> up vote </a>-->
-
                 <button class="btn btn-primary my-2 my-sm-0" style="color: white !important; border:1px solid white" type="submit"><a style="color:white !important" href="javascript:{document.getElementById('vote').submit()}">upvote</a></button> &nbsp;&nbsp;&nbsp;
                 <form action="{% url 'vote' product.id %}" method="POST" id="vote">
                     {% csrf_token %}

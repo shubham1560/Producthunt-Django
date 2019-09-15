@@ -13,6 +13,7 @@ class Product(models.Model):
     body = models.TextField()
     votes_total = models.IntegerField(default=1)
     hunter = models.ForeignKey(User, on_delete=models.CASCADE)
+    active = models.BooleanField(default=True)
 
     # def __str__(self):
     #     return self.title, self.url
