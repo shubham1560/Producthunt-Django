@@ -37,13 +37,12 @@
                 {% endif %}
             </div>
             <div class="col-md-12">
-                {% for comment in comments %} {{comment.comment}} <br> {{comment.commentedBy}} {% endfor %}
 
             </div>
 
             <div class="col-md-12">
 
-                <br><br><br><br>
+                <br>
                 <h3>Comment:</h3>
                 Found the article useful:
                 <select name="useful">
@@ -56,12 +55,20 @@
                     <br>
                     <input type="submit" value="comment" class="btn btn-primary">
                 </form>
+            </div>
+            <div class="col-md-12">
+                <br><br> Comments: {% for comment in comments %}
+                <div style="margin-right: 10px; margin-top: 20px;">
+                    {{comment.comment}} <br>
+                    <div style="padding-left: 20px"> -<b>{{comment.commentedBy}}</b> at {{comment.createdOn}}</div>
+                </div>
+                {% endfor %}
 
 
             </div>
+
         </div>
 
-    </div>
     </div>
 
     {% endblock %}

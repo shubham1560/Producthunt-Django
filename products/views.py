@@ -46,7 +46,7 @@ def detail(request, product_id):
     # a = Product.objects.filter(hunter=request.user)
     product = get_object_or_404(Product, pk=product_id)
     a = ProductAttribute.objects.filter(voter=request.user)
-    comments = ProductFeedback.objects.filter(commentedBy = request.user)
+    comments = ProductFeedback.objects.filter(product = product)
     if a:
         voted = True
     else:
