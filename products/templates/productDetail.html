@@ -15,15 +15,18 @@
             <div class="col-md-12">
                 <h1>Product Detail</h1><br>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <h3>{{product.title}}</h3>
                 <img src={{product.icon.url}} alt="icon"> <br>
                 <img src="{{product.image.url}}" alt="image">
 
                 <br><br> Published By: {{product.hunter}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{product.pub_date}}
                 <h3>Description:</h3> {{product.body}}
-                <br> {{product.id}}
+                <!-- <br> {{product.id}} -->
 
+
+            </div>
+            <div class="col-md-4">
                 <br> {% if voted %} Thanks for your valuable vote {% else %}
                 <button class="btn btn-primary my-2 my-sm-0" style="color: white !important; border:1px solid white" type="submit"><a style="color:white !important" href="javascript:{document.getElementById('vote').submit()}">upvote</a></button> &nbsp;&nbsp;&nbsp;
                 <form action="{% url 'vote' product.id %}" method="POST" id="vote">
@@ -31,6 +34,23 @@
                     <input type="hidden" />
                 </form>
                 {% endif %}
+            </div>
+            <div class="col-md-12">
+
+                <br><br><br><br>
+                <h3>Comment:</h3>
+                Found the article useful:
+                <select name="useful">
+                    <option value="True">Yes</option>
+                    <option value="False">No</option>
+                </select> <br> <br>
+                <form action="{% url 'comment' product.id %}" method="POST" id="comment">
+                    {% csrf_token %}
+                    <textarea name="comment" rows="5" cols="100"></textarea>
+                    <input type="submit" value="comment" class="btn btn-primary">
+                </form>
+
+
             </div>
         </div>
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-from .models import Product, ProductAttribute
+from .models import Product, ProductAttribute, ProductFeedback
 from django.utils import timezone
 import random
 import string
@@ -75,4 +75,26 @@ def vote(request, product_id):
             votes.save()
             # print(votes)
             return detail(request, product_id)
+    return detail(request, product_id)
+
+
+@login_required(login_url='/accounts')
+def comment(request, product_id):
+    print(request)
+    print(request.POST['comment'])
+    print(request.POST['useful'])
+    if request.method == 'POST':
+        product = get_object_or_404(Product, pk=product_id)
+        comment = ProductFeedback()
+        comment.id = int(''.join([random.choice(string.digits) for n in range(16)]))
+        comment.product = product
+        comment.commentedBy = request.user
+        comment.createdOn = timezone.datetime.now()
+        comment.comment = request.POST['comment']
+        if(request.POST['useful']=='True'):
+            comment.useful = True
+        else:
+            comment.useful = False
+        comment.save()
+        return detail(request, product_id)
     return detail(request, product_id)
