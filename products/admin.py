@@ -3,7 +3,20 @@ from .models import Product
 from .models import ProductAttribute, ProductFeedback
 # Register your models here.
 
-admin.site.register(Product)
-admin.site.register(ProductAttribute)
-admin.site.register(ProductFeedback)
+
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('title', 'url')
+
+
+class ProductFeedbackAdmin(admin.ModelAdmin):
+    list_display = ('comment', 'commentedBy', 'product', 'useful', 'active')
+
+
+class ProductAttributeAdmin(admin.ModelAdmin):
+    list_display = ('vote', 'product', 'voter')
+
+
+admin.site.register(Product, ProductAdmin)
+admin.site.register(ProductAttribute, ProductAttributeAdmin)
+admin.site.register(ProductFeedback, ProductFeedbackAdmin)
 
