@@ -26,6 +26,7 @@
 
 
             </div>
+
             <div class="col-md-4">
                 <br> {% if voted %} Thanks for your valuable vote {% else %}
                 <button class="btn btn-primary my-2 my-sm-0" style="color: white !important; border:1px solid white" type="submit"><a style="color:white !important" href="javascript:{document.getElementById('vote').submit()}">upvote</a></button> &nbsp;&nbsp;&nbsp;
@@ -35,6 +36,11 @@
                 </form>
                 {% endif %}
             </div>
+            <div class="col-md-12">
+                {% for comment in comments %} {{comment.comment}} <br> {{comment.commentedBy}} {% endfor %}
+
+            </div>
+
             <div class="col-md-12">
 
                 <br><br><br><br>
@@ -47,6 +53,7 @@
                 <form action="{% url 'comment' product.id %}" method="POST" id="comment">
                     {% csrf_token %}
                     <textarea name="comment" rows="5" cols="100"></textarea>
+                    <br>
                     <input type="submit" value="comment" class="btn btn-primary">
                 </form>
 

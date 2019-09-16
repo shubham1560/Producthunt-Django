@@ -46,11 +46,12 @@ def detail(request, product_id):
     # a = Product.objects.filter(hunter=request.user)
     product = get_object_or_404(Product, pk=product_id)
     a = ProductAttribute.objects.filter(voter=request.user)
+    comments = ProductFeedback.objects.filter(commentedBy = request.user)
     if a:
         voted = True
     else:
         voted = False
-    result = {'product': product, 'voted': voted}
+    result = {'product': product, 'voted': voted, 'comments': comments}
     return render(request, 'productDetail.html', result)
 
 
@@ -80,9 +81,9 @@ def vote(request, product_id):
 
 @login_required(login_url='/accounts')
 def comment(request, product_id):
-    print(request)
-    print(request.POST['comment'])
-    print(request.POST['useful'])
+    # print(request)
+    # print(request.POST['comment'])
+    # print(request.POST['useful'])
     if request.method == 'POST':
         product = get_object_or_404(Product, pk=product_id)
         comment = ProductFeedback()
@@ -90,8 +91,8 @@ def comment(request, product_id):
         comment.product = product
         comment.commentedBy = request.user
         comment.createdOn = timezone.datetime.now()
-        comment.comment = request.POST['comment']
-        if(request.POST['useful']=='True'):
+        comment.comment = request.POST.get('comment')
+        if request.POST.get('useful')=='True':
             comment.useful = True
         else:
             comment.useful = False

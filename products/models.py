@@ -31,4 +31,4 @@ class ProductFeedback(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     commentedBy = models.ForeignKey(User, on_delete=models.CASCADE)
     createdOn = models.DateTimeField()
-    useful = models.BooleanField()
+    useful = models.BooleanField(default=True)
