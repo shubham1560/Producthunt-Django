@@ -46,12 +46,12 @@ def detail(request, product_id):
     # a = Product.objects.filter(hunter=request.user)
     product = get_object_or_404(Product, pk=product_id)
     a = ProductAttribute.objects.filter(voter=request.user)
-    comments = ProductFeedback.objects.filter(product = product)
+    comments = ProductFeedback.objects.filter(product=product)
     if a:
         voted = True
     else:
         voted = False
-    result = {'product': product, 'voted': voted,'useful':a.useful, 'comments': comments}
+    result = {'product': product, 'voted': voted, 'useful': a[0].useful, 'comments': comments}
     return render(request, 'productDetail.html', result)
 
 
@@ -104,10 +104,5 @@ def comment(request, product_id):
         comment.commentedBy = request.user
         comment.createdOn = timezone.datetime.now()
         comment.comment = request.POST.get('comment')
-        if request.POST.get('useful')=='True':
-            comment.useful = True
-        else:
-            comment.useful = False
         comment.save()
-        return detail(request, product_id)
     return detail(request, product_id)

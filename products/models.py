@@ -33,4 +33,4 @@ class ProductFeedback(models.Model):
     commentedBy = models.ForeignKey(User, on_delete=models.CASCADE)
     createdOn = models.DateTimeField()
     active = models.BooleanField(default=True)
-    parComment = models.ForeignKey('self', on_delete=models.CASCADE, default=3083200227470499)
+    parComment = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=False )
