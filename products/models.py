@@ -20,7 +20,8 @@ class Product(models.Model):
 
 
 class ProductAttribute(models.Model):
-    vote = models.BooleanField()
+    vote = models.BooleanField(null=True)
+    useful = models.BooleanField(null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     voter = models.ForeignKey(User, on_delete=models.CASCADE)
     voting_time = models.DateTimeField()
@@ -31,6 +32,5 @@ class ProductFeedback(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     commentedBy = models.ForeignKey(User, on_delete=models.CASCADE)
     createdOn = models.DateTimeField()
-    useful = models.BooleanField(default=True)
     active = models.BooleanField(default=True)
     parComment = models.ForeignKey('self', on_delete=models.CASCADE, default=3083200227470499)

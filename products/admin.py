@@ -9,7 +9,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class ProductFeedbackAdmin(admin.ModelAdmin):
-    list_display = ('comment', 'commentedBy', 'product', 'useful', 'active')
+    list_display = ('comment', 'commentedBy', 'product', 'active')
 
 
 class ProductAttributeAdmin(admin.ModelAdmin):

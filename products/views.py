@@ -51,7 +51,7 @@ def detail(request, product_id):
         voted = True
     else:
         voted = False
-    result = {'product': product, 'voted': voted, 'comments': comments}
+    result = {'product': product, 'voted': voted,'useful':a.useful, 'comments': comments}
     return render(request, 'productDetail.html', result)
 
 
@@ -64,6 +64,7 @@ def vote(request, product_id):
         print("Giving your vote")
         # print("Well Inside Function")
         if request.method == 'POST':
+            print(request.user)
             # print("Inside POST")
             product = get_object_or_404(Product, pk=product_id)
             # print(product)
@@ -75,7 +76,18 @@ def vote(request, product_id):
             votes.voting_time = timezone.datetime.now()
             votes.save()
             # print(votes)
-            return detail(request, product_id)
+    return detail(request, product_id)
+
+
+# @login_required(login_url='/accounts')
+def useful(request, product_id):
+    a = ProductAttribute.objects.filter(voter=request.user, useful=True)
+    if a:
+        print("Already rendered Useful")
+    else:
+        product = get_object_or_404(Product, pk=product_id)
+        ProductAttribute.objects.update_or_create(voter=request.user, product=product,
+                voting_time = timezone.datetime.now(),  defaults={'useful': True})
     return detail(request, product_id)
 
 
