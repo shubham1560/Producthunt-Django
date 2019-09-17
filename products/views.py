@@ -106,3 +106,12 @@ def comment(request, product_id):
         comment.comment = request.POST.get('comment')
         comment.save()
     return detail(request, product_id)
+
+
+@login_required(login_url='/accounts')
+def myprofile(request):
+    productsCreated = Product.objects.filter(hunter=request.user)
+    productsFeedback = ProductFeedback.objects.filter(commentedBy=request.user)
+    productAttribute = ProductAttribute.objects.filter(voter=request.user)
+    profile = {'productCreated': productsCreated, 'productFeedback':productsFeedback, 'productAttribute': productAttribute}
+    return render(request, 'myprofile.html', profile)
