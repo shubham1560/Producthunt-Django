@@ -59,7 +59,7 @@
                 <h3>Comment:</h3>
                 <form action="{% url 'comment' product.id %}" method="POST" id="comment">
                     {% csrf_token %}
-                    <textarea name="comment" rows="5" cols="100"></textarea>
+                    <textarea name="comment" required rows="5" cols="100"></textarea>
                     <br>
                     <input type="submit" value="comment" class="btn btn-primary">
                 </form>
