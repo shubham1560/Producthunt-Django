@@ -45,19 +45,22 @@ def products(request):
 def detail(request, product_id):
     # a = Product.objects.filter(hunter=request.user)
     product = get_object_or_404(Product, pk=product_id)
-    a = ProductAttribute.objects.filter(voter=request.user)
+    a = ProductAttribute.objects.filter(voter=request.user, product = product)
     comments = ProductFeedback.objects.filter(product=product)
     if a:
         voted = True
+        useful = True
     else:
         voted = False
-    result = {'product': product, 'voted': voted, 'useful': a[0].useful, 'comments': comments}
+        useful = False
+    result = {'product': product, 'voted': voted, 'useful': useful , 'comments': comments}
     return render(request, 'productDetail.html', result)
 
 
 @login_required(login_url='/accounts')
 def vote(request, product_id):
-    a = ProductAttribute.objects.filter(voter=request.user)
+    product = get_object_or_404(Product, pk=product_id)
+    a = ProductAttribute.objects.filter(voter=request.user, product = product)
     if a:
         print("Already Given vote")
     else:

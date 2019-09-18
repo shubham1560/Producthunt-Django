@@ -12,10 +12,23 @@
     {% block content%}
 
     <div class="container">
-        <br><br>The Profile will be loaded here <br><br> Created Products: <br> {{productCreated}}
+        <!-- <br><br>The Profile will be loaded here <br><br> -->
+        <!-- <hr> -->
+        <br><br> Created Products:
+        <hr>
+        <div style="padding-left:40px;">
+            {% for product in productCreated %} -You created this product <b>{{product.title}}</b> on {{product.pub_date}} <br> {% endfor %}
+        </div>
         <br><br>
-        <br> Voted Or found Useful Product: <br> {{productAttribute}} <br> <br> Comments: <br> {{productFeedback}}
+        <br> Voted Or found Useful Product:
+        <hr>
+        <div style="padding-left:40px;"> {% for product in productAttribute%} -You upvoted for <b> {{product.product.title}} </b> on {{product.voting_time}} {% endfor %}</div>
+        <br> <br> Comments:
+        <hr>
+        <div style="padding-left:40px;">
 
+            {% for feedback in productFeedback %} -You commented: <b> {{feedback.comment}} </b>for product: <b>{{feedback.product.title}} </b> <br> {% endfor %}
+        </div>
     </div>
 
     {% endblock %}
