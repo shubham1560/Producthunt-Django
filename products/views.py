@@ -41,7 +41,7 @@ def products(request):
     a = Product.objects.filter(hunter=request.user, active=True)
     return render(request, "products.html", {'myProducts': a})
 
-
+@login_required(login_url='/accounts')
 def detail(request, product_id):
     # a = Product.objects.filter(hunter=request.user)
     product = get_object_or_404(Product, pk=product_id)
